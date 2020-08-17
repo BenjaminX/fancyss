@@ -39,7 +39,8 @@ echo =================
 # cat apnic.txt| awk -F\| '/CN\|ipv4/ { printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > chnroute1.txt
 
 # use ipip_country_cn ip database sync by https://github.com/firehol/blocklist-ipsets from ipip.net（source: https://cdn.ipip.net/17mon/country.zip）.
-curl https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/ipip_country/ipip_country_cn.netset | gsed '/^#/d' >chnroute1.txt
+# curl https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/ipip_country/ipip_country_cn.netset | gsed '/^#/d' >chnroute1.txt
+curl https://raw.githubusercontent.com/PaPerseller/chn-iplist/master/chnroute.txt | gsed '/^#/d' >chnroute1.txt
 
 md5sum3=$(md5sum chnroute1.txt | gsed 's/ /\n/g' | gsed -n 1p)
 md5sum4=$(md5sum ../chnroute.txt | gsed 's/ /\n/g' | gsed -n 1p)
