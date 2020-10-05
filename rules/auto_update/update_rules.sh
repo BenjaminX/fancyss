@@ -59,9 +59,13 @@ echo =================
 # ======================================
 # get cdn list for shadowsocks chn and game mode
 
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
+#wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
+wget -4 https://github.com/felixonmars/dnsmasq-china-list/raw/master/accelerated-domains.china.conf
+#wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
+wget -4 https://github.com/felixonmars/dnsmasq-china-list/raw/master/apple.china.conf
+#wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
+wget -4 https://github.com/felixonmars/dnsmasq-china-list/raw/master/google.china.conf
+
 
 cat accelerated-domains.china.conf apple.china.conf google.china.conf | gsed '/^#/d' | gsed "s/server=\/\.//g" | gsed "s/server=\///g" | gsed -r "s/\/\S{1,30}//g" | gsed -r "s/\/\S{1,30}//g" >cdn_download.txt
 cat cdn_koolshare.txt cdn_download.txt | sort -u >cdn1.txt
