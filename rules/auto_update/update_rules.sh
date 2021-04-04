@@ -68,7 +68,7 @@ wget -4 https://github.com/felixonmars/dnsmasq-china-list/raw/master/google.chin
 
 
 cat accelerated-domains.china.conf apple.china.conf google.china.conf | gsed '/^#/d' | gsed "s/server=\/\.//g" | gsed "s/server=\///g" | gsed -r "s/\/\S{1,30}//g" | gsed -r "s/\/\S{1,30}//g" >cdn_download.txt
-cat cdn_koolshare.txt cdn_download.txt | sort -u >cdn1.txt
+cat cdn_download.txt | sort -u >cdn1.txt
 
 md5sum5=$(md5sum cdn1.txt | gsed 's/ /\n/g' | gsed -n 1p)
 md5sum6=$(md5sum ../cdn.txt | gsed 's/ /\n/g' | gsed -n 1p)
