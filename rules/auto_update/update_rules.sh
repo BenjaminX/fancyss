@@ -115,7 +115,7 @@ else
 fi
 echo =================
 # ======================================
-gsed 's|/114.114.114.114$||' accelerated-domains.china.conf >WhiteList_tmp.txt
+gsed 's|/218.6.200.139$||' accelerated-domains.china.conf >WhiteList_tmp.txt
 gsed -i 's|\(\.\)|\\\1|g' WhiteList_tmp.txt
 gsed -i 's|server=/|.*\\\b|' WhiteList_tmp.txt
 gsed -i 's|b\(cn\)$|\.\1|' WhiteList_tmp.txt
@@ -146,15 +146,15 @@ echo -e "[Local Hosts]\n## China mainland domains\n## Source: https://github.com
 echo -n "## Last update: " >>WhiteList_new.txt
 echo $CurrentDate >>WhiteList_new.txt
 echo -e "\n" >>WhiteList_new.txt
-gsed -e "s|114.114.114.114$||" -e "s|^s|S|" accelerated-domains.china.conf >>WhiteList_new.txt
+gsed -e "s|218.6.200.139$||" -e "s|^s|S|" accelerated-domains.china.conf >>WhiteList_new.txt
 
 # Download domain data of Google in Mainland China part.
 #curl -O https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
-gsed -e "s|114.114.114.114$||" -e "s|^s|S|" google.china.conf >>WhiteList_new.txt
+gsed -e "s|218.6.200.139$||" -e "s|^s|S|" google.china.conf >>WhiteList_new.txt
 
 # Download domain data of Apple in Mainland China part.
 #curl -O https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
-gsed -e "s|114.114.114.114$||" -e "s|^s|S|" apple.china.conf >>WhiteList_new.txt
+gsed -e "s|218.6.200.139$||" -e "s|^s|S|" apple.china.conf >>WhiteList_new.txt
 
 # ok
 [ ! -f "../WhiteList_new.txt" ] && cp WhiteList_new.txt ..
